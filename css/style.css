@@ -1,0 +1,216 @@
+body {
+	font-family: Arial;
+}
+
+/* CONTAINER*/
+#container {
+	overflow: hidden;
+}
+
+a:hover,input[type=submit]:hover {
+	cursor: pointer;
+}
+
+h1,h2,h3,h4,h5 {
+	margin-top: 0;
+	text-align: center;
+	text-transform: none;
+}
+
+h1 {
+	
+}
+
+fieldset {
+	padding: 5px;
+}
+
+input[type=text],input[type=password] {
+	
+}
+
+input[type=text]:hover,input[type=password]:hover {
+	
+}
+
+input[type=submit] {
+	float: right;
+	margin-right: 3em;
+}
+
+input[type=submit]:hover {
+	
+}
+
+p {
+	text-align: justify;
+}
+
+form {
+	
+}
+
+form a {
+	
+}
+
+form a:hover {
+	background: #287368;
+}
+
+fieldset {
+	
+}
+
+/* END CONTAINER*/ /* GENERAL*/
+.clear {
+	clear: both;
+}
+
+.error {
+	color: #ff0000;
+	font-size: 1em;
+	padding: 0;
+	margin: 0;
+	text-align: right;
+	padding-right: 30px;
+}
+
+.center{
+	text-align: center;
+}
+
+/* END GENERAL*/ /* HEADER */
+#header {
+	background: #fff;
+	color: #000;
+	height: 30px;
+	border-bottom: 3px solid #000;
+	vertical-align: middle;
+	margin-bottom: 5px;
+}
+
+#header #logo a {
+	font-size: 1.5em;
+}
+
+#header #topmenu {
+	text-align: right;
+	margin-top: 40px;
+	font-size: 1em;
+}
+
+#header #topmenu ul {
+	padding: 0 5px;
+}
+
+#header #topmenu ul li {
+	display: inline;
+	padding: 0 4px 1px 8px;
+	text-align: center;
+}
+
+#header #topmenu ul li a {
+	color: #000;
+	text-decoration: none;
+}
+
+#header #topmenu ul li a:hover {
+	color: #348075;
+	text-decoration: none;
+}
+
+#header #topmenu ul li:hover {
+	display: inline;
+	color: #348075;
+	padding: 0 4px 1px 8px;
+	cursor: pointer;
+	border-bottom: 2px solid #348075;
+}
+
+/*MAIN AREA*/
+#main {
+	margin: 0 auto;
+	padding: 0 5px;
+}
+
+#side_area,#main_area {
+	background: #fff;
+	margin: 0 5px;
+	padding: 0;
+}
+
+/* HOME FLASH */
+#flash {
+	position: relative;
+	border-bottom: 1px solid #bcbcbc;
+}
+
+#flash .text {
+	position: absolute;
+	bottom: 20px;
+	/* in conjunction with left property, decides the text position */
+	right: 2px;
+	width: 600px; /* optional, though better have one */
+	opacity: 0.8;
+	background: #fff;
+}
+
+#flash .text h1 {
+	font-size: 1.2em;
+	color: #763505;
+	text-align: right;
+	padding-right: 20px;
+}
+
+#flash .text p {
+	color: #763505;
+	text-align: right;
+	padding-right: 20px;
+	
+	
+}
+
+/* END flash */ /*END MAIN AREA*/ /* END HEADER*/ /* FOOTER*/
+#footer {
+	color: #000;
+	border-top: 3px solid #111;
+	font-size: 0.9em;
+	padding-top: 5px;
+}
+
+#copyright,#credit {
+	
+}
+
+#credit {
+	text-align: left;
+	background: url("../images/smalllogo.gif") no-repeat left bottom;
+}
+
+#credit a,#credit a:visited {
+	padding: 0 0 0 20px;
+	text-transform: lowercase;
+	text-decoration: none;
+	color: #66e;
+}
+
+#copyright #terms {
+	padding: 0 20px 0 40px;
+}
+
+#copyright #privacy {
+	padding: 0 20px;
+	border-left: 1px solid #000;
+}
+
+#copyright a,#copyright a:visited {
+	text-decoration: none;
+	color: #66e;
+}
+
+#copyright a:hover,#credit a:hover {
+	color: #00f;
+	cursor: pointer;
+}
+/* END FOOTER*/
