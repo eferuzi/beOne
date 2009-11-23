@@ -1,7 +1,6 @@
 <?php 
 	$email = array('name'=>'email', 'id'=>'email', 'value'=>'youremail@domain.com');
 	$password = array('name'=>'password', 'id'=>'password');
-	$password = array('name'=>'repassword', 'id'=>'repassword');
 	$login_button = array('name'=>'login', 'id'=>'login', 'value'=>'Login');
 ?>
 
@@ -10,7 +9,7 @@
 		<a href="#" id="toggle-login-forms">Login Forms</a>
 	</h2>
 	<div class="block" id="login-forms">
-			<?php echo form_open('home/validate_credentials'); ?>
+			<?php echo form_open('home/login_action'); ?>
 			<fieldset class="login">
 				<legend>Login</legend>
 				<?php echo validation_errors('<p class="error" />');?> 
@@ -23,7 +22,7 @@
 				<p>
 					<?php 
 						echo form_label('Password', 'password'); 
-						echo form_input($password);
+						echo form_password($password);
 					?>
 				</p>
 				<?php 

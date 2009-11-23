@@ -15,11 +15,6 @@ class Member_model extends Model{
 		$message .= "Regards.<br /> beOne Team";
 		$this->email->message($message);
 
-		//	$path = $this->config->item('server_root');
-		//		$file = $path . '/ci_day3/attachments/yourInfo.txt';
-		//
-		//	$this->email->attach($file);
-
 		if($this->email->send())
 		{
 			return TRUE;
@@ -62,6 +57,44 @@ class Member_model extends Model{
 		$query = $this->db->get('login');
 
 		if ($query->num_rows == 1) {
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	function code_check() {
+		$this->db->where('code', $this->input->post('code'));
+		$query = $this->db->get('login');
+
+		if ($query->num_rows == 1) {
+			$row = $query->row();
+			if($row->status==1){
+				return 1;
+			}else{
+				return 0;
+			}
+		}else{
+			return -1;
+		}
+	}
+
+	function activate_member(){
+		$data = array('status' => 1);
+		$this->db->where('code', $this->input->post('code'));
+
+		return $this->db->update('login', $data);
+	}
+	
+
+	function login()
+	{
+		$this->db->where('email', $this->input->post('email'));
+		$this->db->where('secretword', md5($this->input->post('password')));
+		$query = $this->db->get('login');
+
+		if($query->num_rows == 1)
+		{
 			return true;
 		}else{
 			return false;

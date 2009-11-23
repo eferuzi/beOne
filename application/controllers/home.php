@@ -54,21 +54,19 @@ class Home extends Controller{
 
 	function activate_action(){
 		$this->form_validation->set_rules('code', 'Activation Code', 'trim|required|exact_length[32]|callback_code_check');
-		
+
 		if($this->form_validation->run() == FALSE)
 		{
-			$this->register();
+			$this->activate();
 		}
 
 		else
 		{
 			$this->load->model('member_model');
 
-			if($query = $this->member_model->register_member())
+			if($query = $this->member_model->activate_member())
 			{
-				/*send an email*/
-				$data['main_content'] = 'signup_successful';
-				$this->load->view('includes/template', $data);
+				redirect(base_url());
 			}
 			else
 			{
@@ -92,11 +90,11 @@ class Home extends Controller{
 			return TRUE;
 		}
 	}
-	
+
 	function code_check($email)
 	{
 		$this->load->model('member_model');
-		
+
 		$check_result = $this->member_model->code_check();
 
 		if($check_result==1)
@@ -110,6 +108,37 @@ class Home extends Controller{
 		else
 		{
 			return TRUE;
+		}
+	}
+
+	function login_action(){
+		$this->form_validation->set_rules('email', 'Email Address', 'trim|required|valid_email');
+		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]');
+
+		if($this->form_validation->run() == FALSE)
+		{
+			$this->index();
+		}
+
+		else
+		{
+			$this->load->model('member_model');
+
+			if($query = $this->member_model->login())
+			{
+				$data = array(
+				/*TODO: Sessions must use ID and not Email */
+				'email' => $this->input->post('email'),
+				'is_logged_in' => true
+				);
+				
+				$this->session->set_userdata($data);
+				redirect('member');
+			}
+			else
+			{
+				$this->index();
+			}
 		}
 	}
 }
